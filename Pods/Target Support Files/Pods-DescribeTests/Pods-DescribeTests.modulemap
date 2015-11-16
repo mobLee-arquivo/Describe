@@ -1,0 +1,6 @@
+framework module Pods_DescribeTests {
+  umbrella header "Pods-DescribeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
