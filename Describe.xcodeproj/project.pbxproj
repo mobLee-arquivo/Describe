@@ -11,6 +11,7 @@
 		AB494CC71BFA5F5600AAE76E /* Describe.h in Headers */ = {isa = PBXBuildFile; fileRef = AB494CC61BFA5F5600AAE76E /* Describe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB494CCE1BFA5F5600AAE76E /* Describe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB494CC31BFA5F5600AAE76E /* Describe.framework */; };
 		AB494CD31BFA5F5600AAE76E /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB494CD21BFA5F5600AAE76E /* DescribeTests.swift */; };
+		AB494CE11BFA723500AAE76E /* Describe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB494CE01BFA723500AAE76E /* Describe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		AB494CCD1BFA5F5600AAE76E /* DescribeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DescribeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB494CD21BFA5F5600AAE76E /* DescribeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		AB494CD41BFA5F5600AAE76E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB494CE01BFA723500AAE76E /* Describe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Describe.swift; sourceTree = "<group>"; };
 		EBA83E5D8F87F03C72C344E9 /* Pods-DescribeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DescribeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DescribeTests/Pods-DescribeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				AB494CC61BFA5F5600AAE76E /* Describe.h */,
+				AB494CE01BFA723500AAE76E /* Describe.swift */,
 				AB494CC81BFA5F5600AAE76E /* Info.plist */,
 			);
 			path = Describe;
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB494CE11BFA723500AAE76E /* Describe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +387,7 @@
 		AB494CD81BFA5F5600AAE76E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -393,12 +398,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.moblee.Describe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AB494CD91BFA5F5600AAE76E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

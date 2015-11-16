@@ -1,36 +1,19 @@
-//
-//  DescribeTests.swift
-//  DescribeTests
-//
-//  Created by Guilherme Pacheco on 11/16/15.
-//  Copyright © 2015 mobLee. All rights reserved.
-//
+import Quick
+import Nimble
+import Describe
 
-import XCTest
-@testable import Describe
+class DescribeTests: QuickSpec {
 
-class DescribeTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+    override func spec() {
+
+        describe("#describe") {
+
+            it("should return an instance of the given class") {
+                expect(describe(UILabel.self)).to(beAnInstanceOf(UILabel))
+            }
+
         }
+
     }
-    
+
 }
