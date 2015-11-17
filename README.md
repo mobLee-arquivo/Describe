@@ -1,5 +1,7 @@
 # Describe
 
+[![CI Status](http://img.shields.io/travis/mobLee/Describe.svg?style=flat)](https://travis-ci.org/mobLee/Describe)
+
 [Storyboard sucks!](http://stackoverflow.com/a/19457257/1732725)
 
 Describe framework is just a few helper functions, but together with the coding
