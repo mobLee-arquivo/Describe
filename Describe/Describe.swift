@@ -16,3 +16,14 @@ public extension UIView {
     }
 
 }
+
+public extension UIStackView {
+
+    func describeArrangedSubview<T: UIView>(viewClass: T.Type, describeClosure: ((T) -> ())? = nil) -> T {
+        let view = viewClass.init()
+        addArrangedSubview(view)
+        describeClosure?(view)
+        return view
+    }
+
+}

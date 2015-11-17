@@ -54,6 +54,38 @@ class DescribeTests: QuickSpec {
 
         }
 
+        describe("UIStackView") {
+
+            describe("#describeArrangedSubview") {
+
+                var parentView: UIStackView!
+
+                beforeEach {
+                    parentView = UIStackView()
+                }
+
+                it("should return an instance of the given class") {
+                    expect(parentView.describeArrangedSubview(UILabel.self)).to(beAnInstanceOf(UILabel))
+                }
+
+                it("should call the given closure with the created instance") {
+                    var closureInstance: UIView? = nil
+                    let returnedInstance = parentView.describeArrangedSubview(UILabel.self) { view in
+                        closureInstance = view
+                    }
+                    expect(closureInstance).to(equal(returnedInstance))
+                }
+
+                it("should add the view as arranged subview before calling the closure") {
+                    parentView.describeArrangedSubview(UILabel.self) { view in
+                        expect(parentView.arrangedSubviews).to(contain(view))
+                    }
+                }
+
+            }
+
+        }
+
     }
 
 }
