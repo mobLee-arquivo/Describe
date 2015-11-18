@@ -20,12 +20,12 @@ import Describe
 
 Describe has one main function with a few variants:
 
-`describe` receives two parameters. The first one is a class, it will be the
-type of the returned instance. The second is a closure, it should be responsible
-for describing the view's configuration:
+`describe` receives two parameters. The first one is a `UIView` (or subclass)
+instance. The second is a closure, it should be responsible for describing the
+view. For convenience it returns the same `UIView` instance sent:
 
 ```swift
-describe(UILabel.self) { view in
+describe(UILabel()) { view in
     view.textColor = UIColor.blackColor()
     view.font = UIFont.systemFontOfSize(24)
     view.text = "some text"
@@ -48,10 +48,10 @@ extensions of `UIView` and `UIStackView`, respectively, that adds the newly
 created view to the caller parent:
 
 ```swift
-describe(UIView.self) { container in
+describe(UIView()) { container in
     // container configuration
 
-    container.describeSubview(UILabel.self) { label in
+    container.describeSubview(UILabel()) { label in
         // label configuration
 
         // you can add constraints here
@@ -67,7 +67,7 @@ properties. Create a class for your view and declare anything related to the
 view's properties and layout there.
 
 Immutable content like most buttons labels, icons and some texts can be
-configured by the view. Contents that depends on what is being shown should be
+configured by the view. Contents that depend on what is being shown should be
 set by the view controller.
 
 This is how a simple view controller and it's view should be:
@@ -113,22 +113,22 @@ class MyView: UIStackView {
         self.init(frame: CGRectZero)
         axis = .Vertical
 
-        describeArrangedSubview(UIStackView.self) { stack in
+        describeArrangedSubview(UIStackView()) { stack in
             stack.alignment = .Center
             stack.spacing = 16
 
-            myImage = stack.describeArrangedSubview(UIImageView.self) { image in
+            myImage = stack.describeArrangedSubview(UIImageView()) { image in
                 image.snp_makeConstraints { make in
                     make.size.equalTo(64)
                 }
             }
 
-            myLabel = stack.describeArrangedSubview(UILabel.self) { label in
+            myLabel = stack.describeArrangedSubview(UILabel()) { label in
                 label.font = UIFont.systemFontOfSize(24)
             }
         }
 
-        myButton = describeArrangedSubview(UIButton.self) { button in
+        myButton = describeArrangedSubview(UIButton()) { button in
             button.setTitle("Button title", forState: .Normal)
             button.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), forState: .Normal)
         }
