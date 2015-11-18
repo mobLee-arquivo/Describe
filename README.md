@@ -117,13 +117,13 @@ class MyView: UIStackView {
             stack.alignment = .Center
             stack.spacing = 16
 
-            self.myImage = stack.describeArrangedSubview(UIImageView.self) { image in
+            myImage = stack.describeArrangedSubview(UIImageView.self) { image in
                 image.snp_makeConstraints { make in
                     make.size.equalTo(64)
                 }
             }
 
-            self.myLabel = stack.describeArrangedSubview(UILabel.self) { label in
+            myLabel = stack.describeArrangedSubview(UILabel.self) { label in
                 label.font = UIFont.systemFontOfSize(24)
             }
         }
@@ -144,4 +144,4 @@ sanity.
 
 ## License
 
-Asd is available under the MIT license. See the LICENSE file for more info.
+Describe is available under the MIT license. See the LICENSE file for more info.

@@ -9,7 +9,7 @@ class DescribeTests: QuickSpec {
         describe("#describe") {
 
             it("should return an instance of the given class") {
-                expect(describe(UILabel.self)).to(beAnInstanceOf(UILabel))
+                expect(describe(UILabel.self) { _ in }).to(beAnInstanceOf(UILabel))
             }
 
             it("should call the given closure with the created instance") {
@@ -33,7 +33,7 @@ class DescribeTests: QuickSpec {
                 }
 
                 it("should return an instance of the given class") {
-                    expect(parentView.describeSubview(UILabel.self)).to(beAnInstanceOf(UILabel))
+                    expect(parentView.describeSubview(UILabel.self) { _ in }).to(beAnInstanceOf(UILabel))
                 }
 
                 it("should call the given closure with the created instance") {
@@ -65,7 +65,7 @@ class DescribeTests: QuickSpec {
                 }
 
                 it("should return an instance of the given class") {
-                    expect(parentView.describeArrangedSubview(UILabel.self)).to(beAnInstanceOf(UILabel))
+                    expect(parentView.describeArrangedSubview(UILabel.self) { _ in }).to(beAnInstanceOf(UILabel))
                 }
 
                 it("should call the given closure with the created instance") {
