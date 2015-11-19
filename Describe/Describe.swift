@@ -7,20 +7,18 @@ public func describe<T: UIView>(view: T, @noescape describeClosure: (T) -> ()) -
 
 public extension UIView {
 
-    func describeSubview<T: UIView>(view: T, @noescape describeClosure: (T) -> ()) -> T {
+    func addSubview<T: UIView>(view: T, @noescape describeClosure: (T) -> ()) -> T {
         addSubview(view)
-        describeClosure(view)
-        return view
+        return describe(view, describeClosure: describeClosure)
     }
 
 }
 
 public extension UIStackView {
 
-    func describeArrangedSubview<T: UIView>(view: T, @noescape describeClosure: (T) -> ()) -> T {
+    func addArrangedSubview<T: UIView>(view: T, @noescape describeClosure: (T) -> ()) -> T {
         addArrangedSubview(view)
-        describeClosure(view)
-        return view
+        return describe(view, describeClosure: describeClosure)
     }
 
 }

@@ -24,7 +24,7 @@ class DescribeTests: QuickSpec {
 
         describe("UIView") {
 
-            describe("#describeSubview") {
+            describe("#addSubview") {
 
                 var parentView: UIView!
 
@@ -33,19 +33,19 @@ class DescribeTests: QuickSpec {
                 }
 
                 it("should return an instance of the given class") {
-                    expect(parentView.describeSubview(UILabel()) { _ in }).to(beAnInstanceOf(UILabel))
+                    expect(parentView.addSubview(UILabel()) { _ in }).to(beAnInstanceOf(UILabel))
                 }
 
                 it("should call the given closure with the created instance") {
                     var closureInstance: UIView? = nil
-                    let returnedInstance = parentView.describeSubview(UILabel()) { view in
+                    let returnedInstance = parentView.addSubview(UILabel()) { view in
                         closureInstance = view
                     }
                     expect(closureInstance).to(equal(returnedInstance))
                 }
 
                 it("should add the view as subview before calling the closure") {
-                    parentView.describeSubview(UILabel()) { view in
+                    parentView.addSubview(UILabel()) { view in
                         expect(parentView.subviews).to(contain(view))
                     }
                 }
@@ -56,7 +56,7 @@ class DescribeTests: QuickSpec {
 
         describe("UIStackView") {
 
-            describe("#describeArrangedSubview") {
+            describe("#addArrangedSubview") {
 
                 var parentView: UIStackView!
 
@@ -65,19 +65,19 @@ class DescribeTests: QuickSpec {
                 }
 
                 it("should return an instance of the given class") {
-                    expect(parentView.describeArrangedSubview(UILabel()) { _ in }).to(beAnInstanceOf(UILabel))
+                    expect(parentView.addArrangedSubview(UILabel()) { _ in }).to(beAnInstanceOf(UILabel))
                 }
 
                 it("should call the given closure with the created instance") {
                     var closureInstance: UIView? = nil
-                    let returnedInstance = parentView.describeArrangedSubview(UILabel()) { view in
+                    let returnedInstance = parentView.addArrangedSubview(UILabel()) { view in
                         closureInstance = view
                     }
                     expect(closureInstance).to(equal(returnedInstance))
                 }
 
                 it("should add the view as arranged subview before calling the closure") {
-                    parentView.describeArrangedSubview(UILabel()) { view in
+                    parentView.addArrangedSubview(UILabel()) { view in
                         expect(parentView.arrangedSubviews).to(contain(view))
                     }
                 }

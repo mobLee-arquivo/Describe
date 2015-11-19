@@ -43,15 +43,15 @@ The equivalent Android layout would look like this:
 </TextView>
 ```
 
-The variants, `describeSubview` and `describeArrangedSubview`, are just
-extensions of `UIView` and `UIStackView`, respectively, that adds the newly
-created view to the caller parent:
+The variants are extensions of the `UIView`'s `addSubview` and `UIStackView`'s
+`addArrangedSubview` methods, that adds the describe closure parameter to the
+existing functions:
 
 ```swift
 describe(UIView()) { container in
     // container configuration
 
-    container.describeSubview(UILabel()) { label in
+    container.addSubview(UILabel()) { label in
         // label configuration
 
         // you can add constraints here
@@ -113,22 +113,22 @@ class MyView: UIStackView {
         self.init(frame: CGRectZero)
         axis = .Vertical
 
-        describeArrangedSubview(UIStackView()) { stack in
+        addArrangedSubview(UIStackView()) { stack in
             stack.alignment = .Center
             stack.spacing = 16
 
-            myImage = stack.describeArrangedSubview(UIImageView()) { image in
+            myImage = stack.addArrangedSubview(UIImageView()) { image in
                 image.snp_makeConstraints { make in
                     make.size.equalTo(64)
                 }
             }
 
-            myLabel = stack.describeArrangedSubview(UILabel()) { label in
+            myLabel = stack.addArrangedSubview(UILabel()) { label in
                 label.font = UIFont.systemFontOfSize(24)
             }
         }
 
-        myButton = describeArrangedSubview(UIButton()) { button in
+        myButton = addArrangedSubview(UIButton()) { button in
             button.setTitle("Button title", forState: .Normal)
             button.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), forState: .Normal)
         }
