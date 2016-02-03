@@ -144,4 +144,4 @@ sanity.
 
 ## License
 
-Describe is available under the MIT license. See the LICENSE file for more info.
+Describe is available under the MIT license.
